@@ -34,10 +34,7 @@ while cond:
             correct_states.append(answer_state.title())
             state.reveal()
 
-missing_states = []
-for state in states:
-    if state not in correct_states:
-        missing_states.append(state)
+missing_states = [state for state in states if state not in correct_states]
 
 retval = pandas.DataFrame(missing_states)
 retval.to_csv("missing_states.csv")
